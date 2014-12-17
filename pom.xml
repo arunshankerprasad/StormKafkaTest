@@ -10,6 +10,12 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.apache.storm</groupId>
+			<artifactId>storm-core</artifactId>
+			<version>0.9.2-incubating</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.storm</groupId>
 			<artifactId>storm-kafka</artifactId>
 			<version>0.9.2-incubating</version>
 		</dependency>
@@ -28,6 +34,13 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>log4j-over-slf4j</artifactId>
+			<version>1.6.6</version>
+		</dependency>
+
 		<dependency>
 			<groupId>com.hazelcast</groupId>
 			<artifactId>hazelcast</artifactId>
@@ -89,54 +102,4 @@
 			</releases>
 		</repository>
 	</repositories>
-
-	<profiles>
-		<profile>
-			<id>local</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
-			<dependencies>
-				<dependency>
-					<groupId>org.apache.storm</groupId>
-					<artifactId>storm-core</artifactId>
-					<version>0.9.2-incubating</version>
-				</dependency>
-				<dependency>
-					<groupId>org.slf4j</groupId>
-					<artifactId>log4j-over-slf4j</artifactId>
-					<version>1.6.6</version>
-				</dependency>
-				<!--  <dependency>
-					<groupId>org.clojure</groupId>
-					<artifactId>clojure</artifactId>
-					<version>1.4.0</version>
-				</dependency>-->
-			</dependencies>
-		</profile>
-		<profile>
-			<id>cluster</id>
-			<dependencies>
-				<dependency>
-					<groupId>org.apache.storm</groupId>
-					<artifactId>storm-core</artifactId>
-					<version>0.9.2-incubating</version>
-					<scope>provided</scope>
-				</dependency>
-				<dependency>
-					<groupId>org.slf4j</groupId>
-					<artifactId>log4j-over-slf4j</artifactId>
-					<version>1.6.6</version>
-					<scope>provided</scope>
-				</dependency>
-				<dependency>
-					<groupId>org.clojure</groupId>
-					<artifactId>clojure</artifactId>
-					<version>1.4.0</version>
-					<scope>provided</scope>
-				</dependency>
-			</dependencies>
-		</profile>
-
-	</profiles>
 </project>
