@@ -8,16 +8,18 @@
 	<artifactId>storm-kafka-test</artifactId>
 
 	<dependencies>
+		<!-- Storm -->
 		<dependency>
 			<groupId>org.apache.storm</groupId>
 			<artifactId>storm-core</artifactId>
-			<version>0.9.2-incubating</version>
+			<version>0.9.1-incubating</version>
 		</dependency>
-
+		
+		<!-- Kafka -->
 		<dependency>
-			<groupId>org.apache.storm</groupId>
-			<artifactId>storm-kafka</artifactId>
-			<version>0.9.2-incubating</version>
+			<groupId>net.wurstmeister.storm</groupId>
+			<artifactId>storm-kafka-0.8-plus</artifactId>
+			<version>0.4.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.kafka</groupId>

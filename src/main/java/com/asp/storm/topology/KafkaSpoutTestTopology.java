@@ -13,7 +13,9 @@ import backtype.storm.StormSubmitter;
 import backtype.storm.generated.StormTopology;
 import backtype.storm.spout.SchemeAsMultiScheme;
 import backtype.storm.topology.TopologyBuilder;
+import backtype.storm.utils.Utils;
 
+import com.asp.storm.bolt.AnotherWriterBolt;
 import com.asp.storm.bolt.PrinterBolt;
 
 public class KafkaSpoutTestTopology {
@@ -29,6 +31,7 @@ public class KafkaSpoutTestTopology {
         TopologyBuilder builder = new TopologyBuilder();
         builder.setSpout("words", new KafkaSpout(kafkaConfig), 10);
         builder.setBolt("print", new PrinterBolt()).shuffleGrouping("words");
+        builder.setBolt("another_print", new AnotherWriterBolt()).shuffleGrouping("print", Utils.DEFAULT_STREAM_ID);
         return builder.createTopology();
     }
 
